@@ -72,3 +72,15 @@ yarn-error.log*
 
 # Python
 venv
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+
+# Large data and cache (keep data/fixtures for demo mode)
+data/raw/
+data/processed/
+.cache/
+
+
+PLAN.md

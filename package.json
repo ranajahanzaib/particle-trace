@@ -1,0 +1,25 @@
+{
+  "name": "particle-trace-root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Particle Trace — Collider event investigation workspace",
+  "author": "Rana Jahanzaib",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ranajahanzaib/particle-trace.git"
+  },
+  "homepage": "https://github.com/ranajahanzaib/particle-trace#readme",
+  "scripts": {
+    "dev": "(cd apps/web && ./node_modules/.bin/vite)",
+    "build": "(cd apps/web && ./node_modules/.bin/tsc && ./node_modules/.bin/vite build)",
+    "test": "(cd apps/web && ./node_modules/.bin/vitest run)",
+    "test:pipeline": "PYTHONPATH=pipeline/src .venv/bin/pytest pipeline/tests",
+    "pipeline:fixtures": "PYTHONPATH=pipeline/src .venv/bin/python3 scripts/generate_demo_data.py",
+    "pipeline:validate": "PYTHONPATH=pipeline/src .venv/bin/python3 -m particle_trace.cli validate --target-dir data/fixtures"
+  },
+  "packageManager": "pnpm@10.6.3",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
