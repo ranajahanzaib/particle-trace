@@ -46,10 +46,12 @@ Given momentum components $(p_x, p_y, p_z)$:
 
 ### 2.3 Tracker Measurement & True Position Comparisons
 
-The application strictly uses measured detector positions $(x, y, z)$ in millimeters for physical detector rendering. True pre-digitization positions $(x_{\text{true}}, y_{\text{true}}, z_{\text{true}})$ are preserved in a separate comparison layer.
+The application strictly uses measured detector positions $(x, y, z)$ in millimeters for physical detector rendering. True pre-digitization positions $(x_{\mathrm{true}}, y_{\mathrm{true}}, z_{\mathrm{true}})$ are preserved in a separate comparison layer.
 
 - **3D Spatial Residual / Displacement:**
-  $$\Delta x = x - x_{\text{true}}, \quad \Delta y = y - y_{\text{true}}, \quad \Delta z = z - z_{\text{true}}$$
+
+  $$\Delta x = x - x_{\mathrm{true}}, \quad \Delta y = y - y_{\mathrm{true}}, \quad \Delta z = z - z_{\mathrm{true}}$$
+
   $$\Delta r = \sqrt{\Delta x^2 + \Delta y^2 + \Delta z^2}$$
 
 ### 2.4 Calorimeter Energy Deposits & Multi-Particle Contributions
