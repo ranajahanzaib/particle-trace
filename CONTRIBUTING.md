@@ -1,46 +1,88 @@
-## Contributing
+# Contributing to Particle Trace
 
-We welcome contributions of all kinds to improve this project! Here's how you can get involved:
+Thank you for your interest in contributing to **Particle Trace**! We welcome contributions from high-energy physicists, students, scientific software engineers, and web developers.
 
-1. **Fork the Repository**: Start by forking the repository to your GitHub account.
+---
 
-2. **Clone Your Fork**: Clone the forked repository to your local machine:
+## Code of Conduct
 
+This project and everyone participating in it is governed by the [Particle Trace Code of Conduct](./CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
+
+---
+
+## Development Workflow
+
+### 1. Fork and Clone the Repository
+
+```bash
+git clone https://github.com/ranajahanzaib/particle-trace.git
+cd particle-trace
+```
+
+### 2. Install Dependencies
+
+```bash
+# Install frontend packages
+pnpm install
+
+# Setup Python virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e pipeline/
+```
+
+### 3. Run Locally in Demo Mode
+
+```bash
+# Start local Vite development server
+pnpm dev
+```
+
+Open `http://localhost:3000` to interact with the scientific workspace.
+
+### 4. Running Tests
+
+All contributions must include appropriate unit or integration tests:
+
+```bash
+# Run all frontend and API tests
+pnpm test
+
+# Run all Python physics pipeline tests
+pnpm test:pipeline
+
+# Validate dataset bundle integrity
+pnpm pipeline:validate
+```
+
+### 5. Build for Production
+
+Ensure that TypeScript type checks and Vite bundle packaging pass cleanly:
+
+```bash
+pnpm build
+```
+
+---
+
+## Scientific Guidelines & Principles
+
+1. **Physical Correctness**: Never fabricate detector measurements, matching confidence scores, or physical relationships. Derived quantities must strictly follow standard physics formulas documented in [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md).
+2. **64-bit Integer Safety**: Particle IDs and parent references must always be handled as decimal strings in JavaScript and TypeScript.
+3. **Data Integrity**: Validate parallel list lengths, referential integrity, and energy bounds before committing changes to data schemas.
+4. **Detector Geometry**: Keep 3D visualization layers scientifically honest. Clearly distinguish detector measurement positions from true pre-digitization positions and schematic geometry.
+
+---
+
+## Submitting Pull Requests
+
+1. Create a feature branch:
    ```bash
-   git clone <repo_url>
-   cd repo_dir
+   git checkout -b feature/your-feature-name
    ```
-
-3. **Create a Branch**: Create a new branch for your feature or bug fix:
-
+2. Commit your changes with clear, concise commit messages.
+3. Push to your fork:
    ```bash
-   git checkout -b feature-name
+   git push origin feature/your-feature-name
    ```
-
-4. **Make Changes**: Make your changes to the codebase. Be sure to follow existing code style and conventions.
-
-5. **Commit Changes**: Commit your changes with a clear and descriptive message:
-
-   ```bash
-   git commit -m "Add detailed description of the changes"
-   ```
-
-6. **Push Changes**: Push your changes to your fork:
-
-   ```bash
-   git push origin feature-name
-   ```
-
-7. **Submit a Pull Request**: Open a pull request from your branch to the main repository's branch. Include a detailed description of your changes and the problem they solve.
-
-8. **Review and Feedback**: Participate in the review process. Make any requested changes, and your contribution will be merged!
-
-### Guidelines
-
-- Ensure your code follows the existing style and conventions.
-- Include tests for any new functionality or bug fixes.
-- Write clear, concise commit messages and pull request descriptions.
-
-### Issues
-
-Feel free to report bugs or suggest enhancements by creating an issue. Be sure to include detailed information about the problem and, if possible, steps to reproduce it.
+4. Open a Pull Request on GitHub against the `main` branch. Describe the rationale for the change and reference any relevant issues.
