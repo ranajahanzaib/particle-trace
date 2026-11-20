@@ -1,0 +1,30 @@
+{
+  "configuration": "ttbar_pu0",
+  "channel": "ttbar",
+  "pileup": "pu0",
+  "eventCount": 3,
+  "events": [
+    {
+      "eventId": 0,
+      "particleCount": 14,
+      "trackerHitCount": 40,
+      "calorimeterCellCount": 14,
+      "trackCount": 4
+    },
+    {
+      "eventId": 1,
+      "particleCount": 14,
+      "trackerHitCount": 40,
+      "calorimeterCellCount": 14,
+      "trackCount": 4
+    },
+    {
+      "eventId": 2,
+      "particleCount": 14,
+      "trackerHitCount": 40,
+      "calorimeterCellCount": 14,
+      "trackCount": 4
+    }
+  ],
+  "updatedAt": "2026-11-20T16:31:02.241505+00:00"
+}
