@@ -1,0 +1,12 @@
+{
+  "dataset": "CERN/ColliderML-Release-1",
+  "release": "Release 1",
+  "description": "Simulated high-energy physics collision events across truth particles, tracker measurements, calorimeter cells, and reconstructed tracks.",
+  "citation": "CERN ColliderML Collaboration (2024). ColliderML Release 1. Hugging Face.",
+  "license": "CC-BY-4.0",
+  "configurations": [
+    "ttbar_pu0"
+  ],
+  "totalEvents": 3,
+  "updatedAt": "2026-11-20T16:31:02.240019+00:00"
+}
