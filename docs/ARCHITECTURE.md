@@ -46,10 +46,10 @@ Given momentum components $(p_x, p_y, p_z)$:
 
 ### 2.3 Tracker Measurement & True Position Comparisons
 
-The application strictly uses measured detector positions $(x, y, z)$ in millimeters for physical detector rendering. True pre-digitization positions $(\text{true\_x}, \text{true\_y}, \text{true\_z})$ are preserved in a separate comparison layer.
+The application strictly uses measured detector positions $(x, y, z)$ in millimeters for physical detector rendering. True pre-digitization positions $(x_{\text{true}}, y_{\text{true}}, z_{\text{true}})$ are preserved in a separate comparison layer.
 
 - **3D Spatial Residual / Displacement:**
-  $$\Delta x = x - \text{true\_x}, \quad \Delta y = y - \text{true\_y}, \quad \Delta z = z - \text{true\_z}$$
+  $$\Delta x = x - x_{\text{true}}, \quad \Delta y = y - y_{\text{true}}, \quad \Delta z = z - z_{\text{true}}$$
   $$\Delta r = \sqrt{\Delta x^2 + \Delta y^2 + \Delta z^2}$$
 
 ### 2.4 Calorimeter Energy Deposits & Multi-Particle Contributions
@@ -61,8 +61,8 @@ A single cell may receive energy from dozens of particles; conversely, an electr
 
 Particle Trace never treats a cell's `total_energy` as belonging solely to the selected particle. For selected particle $P$:
 
-1. Locate aligned indices $k$ where $\text{contrib\_particle\_ids}[k] == P$.
-2. Retrieve particle contribution energy $E_k = \text{contrib\_energies}[k]$ and contribution time $t_k = \text{contrib\_times}[k]$.
+1. Locate aligned indices $k$ where `contrib_particle_ids[k] == P`.
+2. Retrieve particle contribution energy $E_k =$ `contrib_energies[k]` and contribution time $t_k =$ `contrib_times[k]`.
 3. Compute derived energy-weighted mean contribution time:
    $$\bar{t} = \frac{\sum_k E_k \cdot t_k}{\sum_k E_k}$$
 

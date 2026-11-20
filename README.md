@@ -24,7 +24,7 @@ Whenever you select a particle, the entire interface synchronizes:
 - **3D Detector Scene:** Highlights the particle's measured tracker hits in vibrant emerald green, shows calorimeter cell deposits scaled by energy contribution, illuminates the production vertex, and renders a trajectory guide.
 - **Particle Browser:** Displays searchable, filterable particle lists with standard PDG classification, electric charges, and kinematics.
 - **Particle Inspector:** Shows total momentum, transverse momentum $p_T$, pseudorapidity $\eta$, azimuthal angle $\phi$, rest mass, and 3D production coordinates.
-- **Tracker Explorer:** Compares measured positions $(x, y, z)$ against true pre-digitization coordinates $(\text{true\_x}, \text{true\_y}, \text{true\_z})$ and computes 3D residuals $\Delta r$.
+- **Tracker Explorer:** Compares measured positions $(x, y, z)$ against true pre-digitization coordinates $(x_{\text{true}}, y_{\text{true}}, z_{\text{true}})$ and computes 3D residuals $\Delta r$.
 - **Calorimeter Explorer:** Resolves multi-particle cell contributions, displaying particle-specific deposited energy, shower timing, and energy-weighted mean times.
 - **Reconstructed Tracks:** Surfaces tracks associated via `majority_particle_id` with derived track momentum, $p_T$, and impact parameters.
 - **Decay Ancestry Tree:** Explores parent-child decays, grandparents, and decay products with full bidirectional navigation.
@@ -60,7 +60,7 @@ Particle Trace adheres strictly to scientific correctness and CERN ColliderML co
    Particle IDs, parent references, and majority particle IDs are documented unsigned 64-bit integers. To eliminate JavaScript IEEE-754 precision loss, all identifiers are normalized and serialized as **decimal strings** in JSON bundles and compared as strings.
 2. **Measured vs. True Positions:**
    Measured positions $(x, y, z)$ are strictly used for physical detector measurement displays. True positions are preserved in a dedicated comparison layer:
-   $$\Delta r = \sqrt{(x - \text{true\_x})^2 + (y - \text{true\_y})^2 + (z - \text{true\_z})^2}$$
+   $$\Delta r = \sqrt{(x - x_{\text{true}})^2 + (y - y_{\text{true}})^2 + (z - z_{\text{true}})^2}$$
 3. **Calorimeter Multi-Particle Contributions:**
    A calorimeter cell contains nested parallel arrays of contributions from multiple particles. Particle Trace never assigns the whole cell's `total_energy` to one particle; it extracts only the particle's aligned contribution energy and computes energy-weighted times:
    $$\bar{t} = \frac{\sum_k E_k \cdot t_k}{\sum_k E_k}$$
